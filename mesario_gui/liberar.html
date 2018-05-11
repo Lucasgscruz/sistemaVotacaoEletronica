@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-Br" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="../includes/materialize/css/materialize.min.css">
+        <script type="text/javascript" src="/eel.js"></script>
+        <title>Sistema de Votação Eletronica - Mesario</title>
+    </head>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo"><strong>H</strong>arpocrates</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#">Sass</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <body>
+        <div align="center">
+            <div class="row container">
+                <div class="col s12 m12">
+                    <div class="card">
+                        <div class="card-content black-text">
+                          <span class="card-title">Confirmar Digital e Liberar urna</span>
+
+                            <div class="nav-wrapper">
+                                <!--<form id="campo_pesquisa" onsubmit="pesquisa()">-->
+                                  <div class="input-field">
+                                      <form action="#">
+                                      <div class="file-field input-field">
+                                        <div class="btn">
+                                          <span>Digital</span>
+                                          <input id="finger" type="file">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                          <input class="file-path validate" type="text">
+                                        </div>
+                                      </div>
+                                    </form>
+                                    <button class="waves-effect waves-light btn" onclick="autenticar()">Autenticar</button>
+                                  </div>
+                             <!-- </form>-->
+                            </div>
+                        </div>
+                        <div class="card-action">
+                          <a href="#">This is a link2</a>
+                          <a href="#">casa</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+
+                    <div id="retorno_zone">
+                    </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <script>
+        function get_id(){
+            var url= document.URL;
+
+        }
+        function autenticar(){
+            var codigo = document.getElementById("finger");
+            codigo=codigo.files[0].size;
+            alert(codigo);
+            //eel.autenticar_impressao(id,codigo)
+        }
+        eel.expose(liberar_urna);
+        function liberar_urna(auth){
+            if(auth){
+                //urna liberada
+            }else{
+                //urna bloqueada
+            }
+        }
+
+
+        </script>
+        <script type="text/javascript" src="../includes/materialize/js/jquery.min.js"></script>
+        <script type="text/javascript" src="../includes/materialize/js/materialize.min.js"></script>
+        <script type="text/javascript" src="../includes/materialize/js/extra.js"></script>
+    </body>
+    </html>
