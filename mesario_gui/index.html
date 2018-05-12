@@ -5,10 +5,10 @@
          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="includes/materialize/css/materialize.min.css">
         <script type="text/javascript" src="/eel.js"></script>
-        <title>Sistema de Votação Eletronica - Mesario</title>
+        <title>Sistema de Votação Eletrônica - Mesário</title>
     </head>
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper light-blue">
         <a href="#!" class="brand-logo"><strong>H</strong>arpocrates</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="#">Sass</a></li>
@@ -37,8 +37,8 @@
                             </div>
                         </div>
                         <div class="card-action">
-                          <a href="#">This is a link2</a>
-                          <a href="#">casa</a>
+                          <a href="#">Ajuda</a>
+                          <a href="#">Harpocrates</a>
                         </div>
                     </div>
 
@@ -76,6 +76,16 @@
                 return "sim";
             }
         }
+        function ja_votou(estado,id){
+            //verifica o estado da votacao
+            var botao="<a class='waves-effect waves-light btn'"
+            if(estado == 0){
+                botao+="href=liberar.html/?id="+id+">autenticar</a>"
+            }else{
+                botao+=">Já votou</a>"
+            }
+            return botao
+        }
         //o expose permite que o side python acesse a mesma.
         eel.expose(get_retorno);
         //trata o retorno do lado do python
@@ -91,9 +101,11 @@
             for (var i = 0; i < dados.length; i++) {
                 //tabela+="<tr><td>"+dados[i][1]+"</td><td>"+dados[i][2]+"</td><td>"+dados[i][9]"</td><td>"+dados[i][8]"</td></tr>";
                 votou = formata_saida(dados[i][8]);
+                // var valor=dados[i][0];
+                // var id="/?id="+valor+"'";
+                //alert(id);
                 tabela+="<tr><td>"+dados[i][1]+"</td> <td>"+dados[i][2]+"</td> <td>"+dados[i][7]+"</td> <td>"+votou+
-                "</td><td><a class='waves-effect waves-light btn' href='liberar.html/?id='"+dados[i][0]+
-                "'>autenticar</a></td></tr>";
+                "</td><td>"+ja_votou(dados[i][8],dados[i][0])+"</td></tr>";
             }
             tabela+=final
             local.innerHTML=tabela;

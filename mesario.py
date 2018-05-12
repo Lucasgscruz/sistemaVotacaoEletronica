@@ -12,6 +12,13 @@ def pre_urna(id):
 
 
 @eel.expose
+def encerra_voto(id):
+    """Conclui a votação e bloquea a urna"""
+    print("Chamando conexao com a urna para bloqueio")
+    pesquisa.marca_voto(id)
+
+
+@eel.expose
 def my_python_function(palavra):
     if(len(palavra) > 1):
         print("Chamada de função funcionandoo...")

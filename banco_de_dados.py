@@ -26,13 +26,22 @@ def consulta_nome(nome_pesquisa):
     return dados
 
 
+def marca_voto(id):
+    """Atualiza o estado do voto"""
+    id = str(id)
+    sql = "UPDATE eleitores SET votou=1 WHERE id_eleitor=" + id
+    consulta.execute(sql)
+
+
 def valida_digital(id, codigo):
     """valida a impressao digital"""
-    consulta.execute(
-        "SELECT digital from eleitores WHERE id_eleitor='%s' and digital='%s'" % id, codigo)
-    digital = consulta.fetchall()
-    print("Digital, Validacao", digital, codigo)
-    if(codigo == digital):
+    id = str(id)
+    codigo = str(codigo)
+    sql = "SELECT digital from eleitores WHERE id_eleitor=" + \
+        id + " AND digital=" + codigo
+    estado = consulta.execute(sql)
+
+    if(estado):
         return True
     else:
         return False

@@ -8,6 +8,8 @@ Modulo de Conexao com o banco de dados
 Realiza a conexao
 """
 
+# atualize este trecho com as configurações pertinentes
+
 
 def iniciar_conexao():
     """Realiza a conexão com o banco de dados"""
