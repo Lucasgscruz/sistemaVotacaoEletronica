@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 11, 2018 at 11:42 PM
+-- Generation Time: May 12, 2018 at 09:41 AM
 -- Server version: 5.7.22-0ubuntu0.16.04.1
 -- PHP Version: 7.0.28-0ubuntu0.16.04.1
 
@@ -44,8 +44,9 @@ CREATE TABLE `eleitores` (
 --
 
 INSERT INTO `eleitores` (`id_eleitor`, `cpf`, `nome`, `sobrenome`, `data_nascimento`, `telefone_celular`, `cep`, `zona`, `votou`, `digital`) VALUES
-(1, '10911109809', 'Carlos', 'Magno', '28/02/1993', '31983160034', '36309010', '78', 0, '139110'),
-(2, '10911109817', 'Carlos', 'Barbosa', '28/02/1993', '31983160034', '36309010', '78', 0, '281562');
+(1, '10911109809', 'Joseph', 'Magno', '28/02/1993', '31983160034', '36309010', '78', 0, '139110'),
+(2, '10911109817', 'Alexia', 'Barbosa', '28/02/1995', '31983160034', '36309016', '78', 0, '281562'),
+(3, '18911109817', 'Lucas', 'Fernandes', '17/06/1994', '3183145260', '36309025', '78', 0, '114952');
 
 --
 -- Indexes for dumped tables
@@ -65,7 +66,7 @@ ALTER TABLE `eleitores`
 -- AUTO_INCREMENT for table `eleitores`
 --
 ALTER TABLE `eleitores`
-  MODIFY `id_eleitor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_eleitor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

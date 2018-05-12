@@ -21,7 +21,6 @@ def encerra_voto(id):
 @eel.expose
 def my_python_function(palavra):
     if(len(palavra) > 1):
-        print("Chamada de função funcionandoo...")
         retorno = pesquisa.consulta_nome(palavra)
     eel.get_retorno(retorno)
 

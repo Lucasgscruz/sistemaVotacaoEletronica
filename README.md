@@ -33,3 +33,8 @@ Configurando o Banco:
 - Agora importe os dados do arquivo eleitores.sql que contém a população do banco.
 
 - Agora configure os dados de conexão com o mesmo no arquivo conector_bd.
+
+# Para Executar
+
+Execute:
+> python3 mesario.py

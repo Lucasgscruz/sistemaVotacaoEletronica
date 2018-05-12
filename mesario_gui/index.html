@@ -8,10 +8,10 @@
         <title>Sistema de Votação Eletrônica - Mesário</title>
     </head>
     <nav>
-      <div class="nav-wrapper light-blue">
+      <div class="nav-wrapper red darken-4">
         <a href="#!" class="brand-logo"><strong>H</strong>arpocrates</a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="#">Sass</a></li>
+          <li><a href="#">UFSJ</a></li>
         </ul>
       </div>
     </nav>
@@ -93,7 +93,7 @@
             //captura o local onde será escrito a tabela
             var local= document.getElementById("retorno_zone");
             //formato do cabeçalho da tabela
-            var cabecalho="<table><thead><tr><th>CPF</th><th>Nome</th><th>Zona</th><th>Votou</th><th>Iniciar_voto</th></tr></thead>";
+            var cabecalho="<table><thead><tr><th>CPF</th><th>Nome</th><th>Sobrenome</th><th>Data Nascimento</th><th>Zona</th><th>Votou</th><th>Iniciar_voto</th></tr></thead>";
             var tabela="";
             tabela+=cabecalho;
             var final="</table>";
@@ -104,7 +104,7 @@
                 // var valor=dados[i][0];
                 // var id="/?id="+valor+"'";
                 //alert(id);
-                tabela+="<tr><td>"+dados[i][1]+"</td> <td>"+dados[i][2]+"</td> <td>"+dados[i][7]+"</td> <td>"+votou+
+                tabela+="<tr><td>"+dados[i][1]+"</td> <td>"+dados[i][2]+"</td><td>"+dados[i][3]+"<td>"+dados[i][4]+"</td> <td>"+dados[i][7]+"</td> <td>"+votou+
                 "</td><td>"+ja_votou(dados[i][8],dados[i][0])+"</td></tr>";
             }
             tabela+=final
