@@ -1,0 +1,5 @@
+-- partido,codigo partido --
+Imperio,66
+Republica Disney,77
+Targaryen,17
+Forca X,18

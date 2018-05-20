@@ -50,9 +50,17 @@
                     </div>
 
                     <div class="card">
-
-                    <div id="retorno_zone">
+                        <span class="card-title">Monitor do Ambiente de votação</span>
+                        <br>
+                        <!-- monitor de monitoracao -->
+                        <video width="200" height="200" class="responsive-video" controls>
+                        </video>
                     </div>
+
+                    <div class="card">
+
+                        <div id="retorno_zone">
+                        </div>
 
                     </div>
 
@@ -60,6 +68,24 @@
             </div>
         </div>
         <script>
+        //video..
+        // var video = document.querySelector("#videoElement");
+        //
+        // navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+        //
+        // if (navigator.getUserMedia) {
+        //     navigator.getUserMedia({video: true}, handleVideo, videoError);
+        // }
+        //
+        // function handleVideo(stream) {
+        //     video.src = window.URL.createObjectURL(stream);
+        // }
+        //
+        // function videoError(e) {
+        //     // do something
+        // }
+
+
         var id=get_id();
         function get_id(){
             //pega o id da url
