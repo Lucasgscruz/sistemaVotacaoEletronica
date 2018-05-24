@@ -15,12 +15,14 @@ UFSJ 2018
 * python3
 * eel
 * mysql
-
+* pill
+* qrcode
 - Opcional
 * phpmyadmin
 
 Para instalar as dependências execute:
 > python3 -m pip install eel
+> python3 -m pip install qrcode[pil]
 
 # Banco de dados
 
@@ -34,7 +36,14 @@ Configurando o Banco:
 
 - Agora configure os dados de conexão com o mesmo no arquivo conector_bd.
 
+# Geração vvpat
+
+Os arquivos de vvpat são armazenados no diretorio urna_vvpats.
+
 # Para Executar
 
-Execute:
+Executa o módulo do mesario
 > python3 mesario.py
+
+Executa o módulo da urna
+> python3 urna.py

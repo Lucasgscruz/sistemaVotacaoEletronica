@@ -36,10 +36,6 @@
                              <!-- </form>-->
                             </div>
                         </div>
-                        <div class="card-action">
-                          <a href="#">Ajuda</a>
-                          <a href="#">Harpocrates</a>
-                        </div>
                     </div>
 
                     <div class="card">
@@ -92,7 +88,7 @@
             //captura o local onde será escrito a tabela
             var local= document.getElementById("retorno_zone");
             //formato do cabeçalho da tabela
-            var cabecalho="<table><thead> <tr><th>Foto</th><th>Nome</th><th>Partido</th><th>Numero</th><th>Cargo</th><th>Escolher</th></tr></thead>";
+            var cabecalho="<table><thead> <tr><th>Foto</th><th>Nome</th><th>Partido</th><th>Numero</th><th>Cargo</th><th>Escolher</th><th>Nulo</th></tr></thead>";
             var tabela="";
             tabela+=cabecalho;
             var final="</table>";
@@ -100,13 +96,15 @@
             for (var i = 0; i < dados.length; i++) {
                 //tabela+="<tr><td>"+dados[i][1]+"</td><td>"+dados[i][2]+"</td><td>"+dados[i][9]"</td><td>"+dados[i][8]"</td></tr>";
                 proximo = formata_link(dados[i][3]);
+                nulo= formata_link(000);
                 // var valor=dados[i][0];
                 // var id="/?id="+valor+"'";
                 //alert(id);
                 foto=carrega_imagem(dados[i][0]);
                 tabela+="<tr><td>"+foto+"</td> <td>"+dados[i][1]+"</td>"+
                 "<td>"+dados[i][2]+"<td>"+dados[i][3]+"</td> <td>"+dados[i][4]+"</td>"+
-                "<td>"+proximo+"</td></tr>";
+                "<td>"+proximo+"</td><td>"+nulo+"</td></tr>";
+
             }
             tabela+=final
             local.innerHTML=tabela;
