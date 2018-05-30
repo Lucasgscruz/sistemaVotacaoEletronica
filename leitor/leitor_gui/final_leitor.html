@@ -5,7 +5,7 @@
          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="../includes/materialize/css/materialize.min.css">
         <script type="text/javascript" src="/eel.js"></script>
-        <title>Sistema de Votação Eletrônica - Urna</title>
+        <title>Sistema de Votação Eletrônica - Leitor VVPAT</title>
     </head>
     <nav>
       <div class="nav-wrapper red darken-4">
@@ -24,11 +24,10 @@
                         <div class="card-content black-text">
                           <span class="card-title">Confirme as suas escolhas</span>
                           <div align="center">
-                            <p>Confirmar e gerar vvpat.</p>
                             <div id="zone_escolha">
                             </div>
-                            <button class="waves-effect waves-light btn" onclick="gerarvvpat()">Confirmar</button>
-                            <a class="waves-effect waves-light btn" href="../index_urna.html"><i class="material-icons left">cloud</i>Corrigir</a>
+                            <button class="waves-effect waves-light btn" onclick="redirecionar()">Confirmar</button>
+                            <a class="waves-effect waves-light btn" href="../index_leitor.html"><i class="material-icons left">cloud</i>Corrigir</a>
                           </div>
                         </div>
                     </div>
@@ -47,24 +46,20 @@
         }
 
         function redirecionar(){
-            //Redireciona para pagina principal.
-            window.location="../bloqueado.html";
+            //Redireciona para pagina de bloqueio.
+            window.location="../bloqueado_leitor.html";
         }
         function get_dados(){
             //realiza a leitura do dados
             cargos=ler_url();
             eel.carrega_final(cargos);
+            redirecionar();
         }
         function carrega_imagem(caminho){
             var img= "<div class='col s9'><img src=../"+caminho+" alt='' class='circle responsive-img'></div>";
             return img;
         }
-        function gerarvvpat(){
-            cargos=ler_url();
-            eel.confirma_escolha(cargos);
-            redirecionar();
-
-        }
+    
         function formata_link(id){
             //formata o link
             var botao="<a class='waves-effect waves-light btn'"

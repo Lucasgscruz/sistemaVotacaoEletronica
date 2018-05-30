@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-Br" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="../includes/materialize/css/materialize.min.css">
+        <script type="text/javascript" src="/eel.js"></script>
+        <title>Sistema de Votação Eletrônica - Leitor VVPAT</title>
+    </head>
+    <nav>
+      <div class="nav-wrapper red darken-4">
+        <a href="#!" class="brand-logo"><strong>H</strong>arpocrates</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#">UFSJ</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <body>
+        <div align="center">
+            <div class="row container">
+                <div class="col s12 m12">
+                    <div class="card">
+                        <div class="card-content black-text">
+                          <span class="card-title">Leitura do VVPAT</span>
+
+                            <div class="nav-wrapper">
+                                <!--<form id="campo_pesquisa" onsubmit="pesquisa()">-->
+                                  <div class="input-field">
+                                      <form action="#">
+                                      <div class="file-field input-field">
+                                        <div class="btn">
+                                          <span>VVPAT</span>
+                                          <input id="vvpat" type="file">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                          <input class="file-path validate" type="text">
+                                        </div>
+                                      </div>
+                                    </form>
+                                    <button class="waves-effect waves-light btn" onclick="verificar()">Verificar</button>
+                                  </div>
+                             <!-- </form>-->
+                            </div>
+                        </div>
+                        <div class="card-action">
+                          <a href="#">Ajuda</a>
+                          <a href="#">Harpocrates</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+
+                        <div id="retorno_zone">
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <script>
+
+        var id=get_id();
+        function get_id(){
+            //pega o id da url
+            var url= document.URL;
+            var cod = url.split("=")[1];
+            return cod;
+        }
+
+        function redirecionar(){
+            //Redireciona para pagina principal.
+            window.location="../final_leitor.html";
+        }
+        function verificar(){
+            //autentica a impressao digital do eleitor
+            var codigo = document.getElementById("vvpat");
+            codigo=codigo.files[0].size;
+            //autentica a impressao
+            eel.verificar_vvpat(id,codigo)
+            redirecionar();
+        }
+
+        </script>
+        <script type="text/javascript" src="../includes/materialize/js/jquery.min.js"></script>
+        <script type="text/javascript" src="../includes/materialize/js/materialize.min.js"></script>
+        <script type="text/javascript" src="../includes/materialize/js/extra.js"></script>
+    </body>
+    </html>

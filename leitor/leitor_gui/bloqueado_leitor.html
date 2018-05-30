@@ -1,3 +1,7 @@
+<!-- var msg_bloqueio="<div class='progress'><div class='indeterminate'></div></div>"
+msg_autorizacao.innerHTML="<i class='material-icons'>assignment_late</i>\
+<h3>Erro ao validar a digital</h3>"+msg_bloqueio+"<p>Você esta sendo redirecionado.</p>" -->
+
 <!DOCTYPE html>
 <html lang="pt-Br" dir="ltr">
     <head>
@@ -5,7 +9,7 @@
          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="includes/materialize/css/materialize.min.css">
         <script type="text/javascript" src="/eel.js"></script>
-        <title>Sistema de Votação Eletrônica - Urna</title>
+        <title>Sistema de Votação Eletrônica - Leitor VVPAT</title>
     </head>
     <nav>
       <div class="nav-wrapper red darken-4">
@@ -22,12 +26,12 @@
                 <div class="col s12 m12">
                     <div class="card">
                         <div class="card-content black-text">
-                          <span class="card-title">Como votar?</span>
+                          <span class="card-title">Cédula de Votação Verificada.</span>
                           <div align="center">
-                            <p>Escolha um canditato para a vaga de Vereador.</p>
-                            <p>Escolha um canditato para a vaga de Prefeito.</p>
-                            <p>Verifique a sua escolha e Confirme o seu Voto.</p>
-                            <a class="waves-effect waves-light btn" href="vereador.html"><i class="material-icons left">cloud</i>Continuar</a>
+
+                            <h4>Insira sua cédula de votação na urna lacrada!</h4>
+                            <div id="msg_bloqueio">
+                            </div>
                           </div>
                         </div>
                     </div>
@@ -35,6 +39,21 @@
             </div>
         </div>
         <script type="text/javascript">
+        bloquear_urna();
+        function redirecionar(){
+            //Redireciona para pagina principal.
+            window.location="../index_leitor.html";
+        }
+        function bloquear_urna(){
+            //mensagem da urna bloqueada
+            var msg_autorizacao=document.getElementById('msg_bloqueio');
+            //urna bloqueada
+            var msg_bloqueio="<div class='progress'><div class='indeterminate'></div></div>"
+            msg_autorizacao.innerHTML="<i class='large material-icons'>check_circle</i>\
+            <h3>Leitor Bloqueado</h3>"+msg_bloqueio+"<p>Aguardando Liberação.</p>"
+
+            setTimeout(redirecionar,7000);
+        }
         </script>
 
         <script type="text/javascript" src="includes/materialize/js/jquery.min.js"></script>
