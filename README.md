@@ -17,11 +17,12 @@ UFSJ 2018
 * mysql
 * pill
 * qrcode
-- Opcional
+## Opcional
 * phpmyadmin
 
 Para instalar as dependências execute:
 > python3 -m pip install eel
+
 > python3 -m pip install qrcode[pil]
 
 # Banco de dados
@@ -38,7 +39,7 @@ Configurando o Banco:
 
 # Geração vvpat
 
-Os arquivos de vvpat são armazenados no diretorio urna_vvpats.
+Os arquivos de vvpat são armazenados no diretorio urna_vvpats. Crie esta pasta dentro da pasta urna se o mesmo não existir.
 
 # Para Executar
 
