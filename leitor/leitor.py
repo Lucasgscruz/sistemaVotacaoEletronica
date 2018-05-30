@@ -24,7 +24,17 @@ def carrega_final(escolhas):
 @eel.expose
 def verificar_vvpat(id, codigo):
     """ verifica o conteudo do vvpat"""
-    pass
+    #Mhysa_Dark Cookies
+    if(codigo == 852):
+        pass
+    # Mhysa_Hope
+    if(codigo == 770):
+        pass
+
+    #Mhysa_Nulo
+    if(codigo == 758):
+        pass    
+    print(candidatos)
 
 
 eel.start('index_leitor.html')
