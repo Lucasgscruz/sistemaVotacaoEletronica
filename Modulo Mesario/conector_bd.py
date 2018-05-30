@@ -13,8 +13,8 @@ Realiza a conexao
 
 def iniciar_conexao():
     """Realiza a conexão com o banco de dados"""
-    con = MySQLdb.connect(host="localhost", user='harpocrates',
-                               passwd="harpocrates", db='eleicao')
+    con = MySQLdb.connect(host="localhost", user='root',
+                               passwd="guga1255", db='harpocrates')
 
     # retorna um cursor para ser utilizada nas consultas.
     consulta = con.cursor()
