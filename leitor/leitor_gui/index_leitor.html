@@ -61,25 +61,28 @@
         </div>
         <script>
 
-        var id=get_id();
-        function get_id(){
-            //pega o id da url
-            var url= document.URL;
-            var cod = url.split("=")[1];
-            return cod;
-        }
-
-        function redirecionar(){
+        // var id=get_id();
+        // function get_id(){
+        //     //pega o id da url
+        //     var url= document.URL;
+        //     var cod = url.split("=")[1];
+        //     return cod;
+        // }
+        eel.expose(redirecionar)
+        function redirecionar(vereador,prefeito){
             //Redireciona para pagina principal.
-            window.location="../final_leitor.html";
+            console.log(typeof(vereador))
+            var caminho = "../final_leitor.html/?escolhas=";
+            var resultado = caminho.concat(vereador,",");
+            resultado = resultado.concat(prefeito);
+            window.location=resultado;
         }
         function verificar(){
             //autentica a impressao digital do eleitor
             var codigo = document.getElementById("vvpat");
-            codigo=codigo.files[0].size;
-            //autentica a impressao
-            eel.verificar_vvpat(id,codigo)
-            redirecionar();
+            codigo=codigo.files[0].name
+            console.log(codigo)
+            eel.verificar_vvpat(codigo)
         }
 
         </script>

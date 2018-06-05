@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import eel
 import eleicao as eleicao
-
+import qr as qr_code
 eel.init('leitor_gui')
 
 partidos = eleicao.carrega_partidos()
@@ -22,19 +22,12 @@ def carrega_final(escolhas):
     eel.tabela_final(candidatos)
 
 @eel.expose
-def verificar_vvpat(id, codigo):
+def verificar_vvpat(nome):
     """ verifica o conteudo do vvpat"""
-    #Mhysa_Dark Cookies
-    if(codigo == 852):
-        pass
-    # Mhysa_Hope
-    if(codigo == 770):
-        pass
-
-    #Mhysa_Nulo
-    if(codigo == 758):
-        pass    
-    print(candidatos)
+    codigo=qr_code.get_qr(nome)
+    vereador=codigo[0]
+    prefeito=codigo[1]
+    eel.redirecionar(vereador,prefeito)
 
 
 eel.start('index_leitor.html')
