@@ -22,26 +22,8 @@
                 <div class="col s12 m12">
                     <div class="card">
                         <div class="card-content black-text">
-                          <span class="card-title">Leitura do VVPAT</span>
-
-                            <div class="nav-wrapper">
-                                <!--<form id="campo_pesquisa" onsubmit="pesquisa()">-->
-                                  <div class="input-field">
-                                      <form action="#">
-                                      <div class="file-field input-field">
-                                        <div class="btn">
-                                          <span>VVPAT</span>
-                                          <input id="vvpat" type="file">
-                                        </div>
-                                        <div class="file-path-wrapper">
-                                          <input class="file-path validate" type="text">
-                                        </div>
-                                      </div>
-                                    </form>
-                                    <button class="waves-effect waves-light btn" onclick="verificar()">Verificar</button>
-                                  </div>
-                             <!-- </form>-->
-                            </div>
+                          <span class="card-title">Leitor Confirmação</span>
+                          <h3>Aproxime o Seu Cartão</h3>
                         </div>
                         <div class="card-action">
                           <a href="#">Ajuda</a>
@@ -60,15 +42,8 @@
             </div>
         </div>
         <script>
-
-        // var id=get_id();
-        // function get_id(){
-        //     //pega o id da url
-        //     var url= document.URL;
-        //     var cod = url.split("=")[1];
-        //     return cod;
-        // }
-        eel.expose(redirecionar)
+        verificar();
+        eel.expose(redirecionar);
         function redirecionar(vereador,prefeito){
             //Redireciona para pagina principal.
             console.log(typeof(vereador))
@@ -78,11 +53,8 @@
             window.location=resultado;
         }
         function verificar(){
-            //autentica a impressao digital do eleitor
-            var codigo = document.getElementById("vvpat");
-            codigo=codigo.files[0].name
-            console.log(codigo)
-            eel.verificar_vvpat(codigo)
+            //Realiza a leitura do qrcode
+            eel.verificar_vvpat();
         }
 
         </script>

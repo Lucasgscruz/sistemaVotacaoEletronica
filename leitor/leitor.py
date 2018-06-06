@@ -22,9 +22,9 @@ def carrega_final(escolhas):
     eel.tabela_final(candidatos)
 
 @eel.expose
-def verificar_vvpat(nome):
+def verificar_vvpat():
     """ verifica o conteudo do vvpat"""
-    codigo=qr_code.get_qr(nome)
+    codigo=qr_code.qr_cam()
     vereador=codigo[0]
     prefeito=codigo[1]
     eel.redirecionar(vereador,prefeito)

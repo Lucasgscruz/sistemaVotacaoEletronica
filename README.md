@@ -17,13 +17,22 @@ UFSJ 2018
 * mysql
 * pill
 * qrcode
+* opencv
+* zbar
+* Chrome
 ## Opcional
 * phpmyadmin
 
 Para instalar as dependências execute:
 > python3 -m pip install eel
 
+> pip install eel
+
+> pip install qrcode[pil]
+
 > python3 -m pip install qrcode[pil]
+
+> sudo apt-get install python-zbar
 
 # Banco de dados
 
@@ -48,3 +57,7 @@ Executa o módulo do mesario
 
 Executa o módulo da urna
 > python3 urna.py
+
+Modulo de Confirmação/leitor
+
+> python leitor.py
