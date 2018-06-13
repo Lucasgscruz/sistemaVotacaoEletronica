@@ -12,18 +12,33 @@ v_vereador = {}
 
 @eel.expose
 def salvarVotos():
-    arq = open("votos.txt", "a")
-    arq.write("Prefeito:\n")
+    total_prefeito = 0
+    total_vereador = 0
+    max_votos = -1
+    arq = open("votos.txt", "w")
+    arq.write("Prefeito\n")
     for i in candidatos:
         if candidatos[i][4] == 'Prefeito':
             arq.write(candidatos[i][1] + ': ')
-            arq.write(candidatos[i][5] + '\n')
-            
-    arq.write("\nVereador:\n")
+            arq.write(str(candidatos[i][5]) + '\n')
+            if candidatos[i][5] > max_votos:
+                eleito = candidatos[i][1]
+                max_votos = candidatos[i][5]
+            total_prefeito +=1
+    arq.write('Total de votos --> '+ str(total_prefeito) + '\n')
+    arq.write('Prefeito eleito: ' + eleito + ' ' +str(max_votos) + ' votos\n')
+    max_votos = -1
+    arq.write("\nVereador\n")
     for i in candidatos:
         if candidatos[i][4] == 'Vereador':
             arq.write(candidatos[i][1] + ': ')
-            arq.write(candidatos[i][5] + '\n')
+            arq.write(str(candidatos[i][5]) + '\n')
+            if candidatos[i][5] > max_votos and candidatos[i][1] != 'Nulo':
+                eleito = candidatos[i][1]
+                max_votos = candidatos[i][5]
+            total_vereador +=1
+    arq.write('Total de votos --> '+ str(total_prefeito) + '\n')
+    arq.write('Vereador eleito: ' + eleito + ' ' +str(max_votos) + ' votos')
     arq.close()
 
 def inicializaHash():
@@ -34,6 +49,9 @@ def contarVoto(vereador, prefeito):
     inicializaHash()
     candidatos[int(vereador)][5] += 1
     candidatos[int(prefeito)][5] += 1
+    print candidatos[int(vereador)][1], str(candidatos[int(vereador)][5])
+    print candidatos[int(prefeito)][1], str(candidatos[int(prefeito)][5])
+
 
 def get_candidados(vetor):
     """Retorna o dado dos candidatos"""
