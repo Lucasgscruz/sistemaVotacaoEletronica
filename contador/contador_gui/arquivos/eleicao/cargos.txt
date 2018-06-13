@@ -1,0 +1,3 @@
+-- cargo: sigla --
+prefeito:p
+vereador:v

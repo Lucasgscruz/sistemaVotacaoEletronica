@@ -1,0 +1,59 @@
+<!-- var msg_bloqueio="<div class='progress'><div class='indeterminate'></div></div>"
+msg_autorizacao.innerHTML="<i class='material-icons'>assignment_late</i>\
+<h3>Erro ao validar a digital</h3>"+msg_bloqueio+"<p>Você esta sendo redirecionado.</p>" -->
+
+<!DOCTYPE html>
+<html lang="pt-Br" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="includes/materialize/css/materialize.min.css">
+        <script type="text/javascript" src="/eel.js"></script>
+        <title>Sistema de Votação Eletrônica - Contador VVPAT</title>
+    </head>
+    <nav>
+      <div class="nav-wrapper red darken-4">
+        <a href="#!" class="brand-logo"><strong>H</strong>arpocrates</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#">UFSJ</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <body>
+        <div align="center">
+            <div class="row container">
+                <div class="col s12 m12">
+                    <div class="card">
+                        <div class="card-content black-text">
+                          <span class="card-title">Cédula de Votação Verificada.</span>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+        bloquear_urna();
+        function redirecionar(){
+            //Redireciona para pagina principal.
+            window.location="../index_leitor.html";
+        }
+        function bloquear_urna(){
+            //mensagem da urna bloqueada
+            var msg_autorizacao=document.getElementById('msg_bloqueio');
+            //urna bloqueada
+            var msg_bloqueio="<div class='progress'><div class='indeterminate'></div></div>"
+            msg_autorizacao.innerHTML="<i class='large material-icons'>check_circle</i>\
+            <h3>Leitor Bloqueado</h3>"+msg_bloqueio+"<p>Aguardando Liberação.</p>"
+
+            setTimeout(redirecionar,7000);
+        }
+        </script>
+
+        <script type="text/javascript" src="includes/materialize/js/jquery.min.js"></script>
+        <script type="text/javascript" src="includes/materialize/js/materialize.min.js"></script>
+        <script type="text/javascript" src="includes/materialize/js/extra.js"></script>
+
+    </body>
+</html>
