@@ -24,8 +24,9 @@
                         <div class="card-content black-text">
                           <span class="card-title">Voto Contabilizado</span>
                           <div align="center">
-                            <div id="zone_escolha">
-                            </div>
+                              <div id="zone_escolha">
+                              </div>
+                              <button class="waves-effect waves-light btn light-green accent-4" onclick="finalizar()">Finalizar</button>
                           </div>
                         </div>
                     </div>
@@ -42,7 +43,10 @@
             var prefeito = cod[1];
             return [prefeito,vereador];
         }
-
+        function finalizar(){
+            //Redireciona para pagina de bloqueio.
+            window.location="../bloqueado_contador.html";
+        }
         function redirecionar(){
             //Redireciona para pagina de bloqueio.
             window.location="../index_contador.html";

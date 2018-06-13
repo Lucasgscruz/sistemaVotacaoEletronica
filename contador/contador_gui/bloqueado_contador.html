@@ -9,7 +9,7 @@ msg_autorizacao.innerHTML="<i class='material-icons'>assignment_late</i>\
          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="includes/materialize/css/materialize.min.css">
         <script type="text/javascript" src="/eel.js"></script>
-        <title>Sistema de Votação Eletrônica - Contador VVPAT</title>
+        <title>Sistema de Votação Eletrônica - Encerramento Contagem</title>
     </head>
     <nav>
       <div class="nav-wrapper red darken-4">
@@ -26,8 +26,12 @@ msg_autorizacao.innerHTML="<i class='material-icons'>assignment_late</i>\
                 <div class="col s12 m12">
                     <div class="card">
                         <div class="card-content black-text">
-                          <span class="card-title">Cédula de Votação Verificada.</span>
-    
+                          <span class="card-title">Contagem de Votos Finalizada.</span>
+                          <div align="center">
+
+                            <div id="msg_bloqueio">
+                            </div>
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -47,7 +51,8 @@ msg_autorizacao.innerHTML="<i class='material-icons'>assignment_late</i>\
             msg_autorizacao.innerHTML="<i class='large material-icons'>check_circle</i>\
             <h3>Leitor Bloqueado</h3>"+msg_bloqueio+"<p>Aguardando Liberação.</p>"
 
-            setTimeout(redirecionar,7000);
+            //setTimeout(redirecionar,7000);
+            eel.salvarVotos();
         }
         </script>
 
