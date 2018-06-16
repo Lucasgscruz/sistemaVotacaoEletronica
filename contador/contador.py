@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import eel
-import eleicao as eleicao
+import criptografia as crip
 import qr as qr_code
+import eleicao as eleicao
+import eel
+import os
 eel.init('contador_gui')
 
 partidos = eleicao.carrega_partidos()
@@ -14,7 +16,8 @@ v_vereador = {}
 def salvarVotos():
     total_prefeito = 0
     total_vereador = 0
-    max_votos = -1
+    max_votos = 0
+    eleito = ''
     arq = open("votos.txt", "w")
     arq.write("Prefeito\n")
     for i in candidatos:
@@ -24,10 +27,11 @@ def salvarVotos():
             if candidatos[i][5] > max_votos:
                 eleito = candidatos[i][1]
                 max_votos = candidatos[i][5]
-            total_prefeito +=1
+            total_prefeito += candidatos[i][5]
     arq.write('Total de votos --> '+ str(total_prefeito) + '\n')
     arq.write('Prefeito eleito: ' + eleito + ' ' +str(max_votos) + ' votos\n')
-    max_votos = -1
+
+    max_votos = 0
     arq.write("\nVereador\n")
     for i in candidatos:
         if candidatos[i][4] == 'Vereador':
@@ -36,17 +40,45 @@ def salvarVotos():
             if candidatos[i][5] > max_votos and candidatos[i][1] != 'Nulo':
                 eleito = candidatos[i][1]
                 max_votos = candidatos[i][5]
-            total_vereador +=1
+            total_vereador += candidatos[i][5]
     arq.write('Total de votos --> '+ str(total_prefeito) + '\n')
     arq.write('Vereador eleito: ' + eleito + ' ' +str(max_votos) + ' votos')
     arq.close()
+    crip.cifraVotos()
+    enviarVotos()
+
+def enviarVotos():
+    email = 'sendemail -f '
+    remetente = 'lucasgscruz10@gmail.com'
+    destinatario = 'lucasgscruz10@gmail.com'
+    assunto = 'Resultado da Eleição'
+    mensagem = 'Segue em anexo os arquivos com os votos.'
+    anexos = 'votos.txt votosCifrados.txt'
+    servidor = 'smtp.gmail.com:587'
+    senha = 'senha123'
+    email += remetente
+    email += ' -t '
+    email += destinatario
+    email += ' -u '
+    email += assunto
+    email += ' -m '
+    email += mensagem
+    email += ' -a '
+    email += anexos
+    email += ' -s '
+    email += servidor
+    email += ' -xu '
+    email += remetente
+    email += ' -xp '
+    email += senha
+    #print email
+    os.system(email)
 
 def inicializaHash():
     for i in candidatos:
         candidatos[i].append(0)
 
 def contarVoto(vereador, prefeito):
-    inicializaHash()
     candidatos[int(vereador)][5] += 1
     candidatos[int(prefeito)][5] += 1
     print candidatos[int(vereador)][1], str(candidatos[int(vereador)][5])
@@ -75,4 +107,6 @@ def verificar_vvpat():
     contarVoto(vereador,prefeito)
     eel.redirecionar(vereador,prefeito)
 
+crip.verificaChave()
+inicializaHash()
 eel.start('index_contador.html')
