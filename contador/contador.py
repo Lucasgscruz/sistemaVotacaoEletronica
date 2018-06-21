@@ -44,8 +44,10 @@ def salvarVotos():
     arq.write('Total de votos --> '+ str(total_prefeito) + '\n')
     arq.write('Vereador eleito: ' + eleito + ' ' +str(max_votos) + ' votos')
     arq.close()
-    crip.cifraVotos()
-    enviarVotos()
+    crip.cifraVotos("votosCifrados.txt")
+    crip.gerar_hash("votosCifrados.txt")
+    os.system("rm votos.txt")
+    #enviarVotos()
 
 def enviarVotos():
     email = 'sendemail -f '
@@ -81,8 +83,8 @@ def inicializaHash():
 def contarVoto(vereador, prefeito):
     candidatos[int(vereador)][5] += 1
     candidatos[int(prefeito)][5] += 1
-    print candidatos[int(vereador)][1], str(candidatos[int(vereador)][5])
-    print candidatos[int(prefeito)][1], str(candidatos[int(prefeito)][5])
+    #print candidatos[int(vereador)][1], str(candidatos[int(vereador)][5])
+    #print candidatos[int(prefeito)][1], str(candidatos[int(prefeito)][5])
 
 
 def get_candidados(vetor):
@@ -101,12 +103,13 @@ def carrega_final(escolhas):
 @eel.expose
 def verificar_vvpat():
     """ verifica o conteudo do vvpat"""
-    codigo=qr_code.qr_cam()
-    vereador=codigo[0]
-    prefeito=codigo[1]
-    contarVoto(vereador,prefeito)
-    eel.redirecionar(vereador,prefeito)
 
-crip.verificaChave()
+    codigo=qr_code.qr_cam()
+    if codigo is not None:
+        vereador=codigo[0]
+        prefeito=codigo[1]
+        contarVoto(vereador,prefeito)
+        eel.redirecionar(vereador,prefeito)
+
 inicializaHash()
 eel.start('index_contador.html')

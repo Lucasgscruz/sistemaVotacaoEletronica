@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import hash_candidatos as integridade
+
 """
 Carrega os dados dos candidatos
 """
@@ -9,8 +9,7 @@ caminho_base = "contador_gui/arquivos/eleicao/"
 caminho_fotos = "arquivos/eleicao/fotos/"
 #----
 
-# verifica a integridade e descompacta a base de candidatos
-# integridade.verifica_integridade()
+
 dicionario_partidos = {}
 candidatos = {}
 
