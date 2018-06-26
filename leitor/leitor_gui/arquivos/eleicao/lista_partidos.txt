@@ -1,5 +1,12 @@
 -- partido,codigo partido --
-Imperio,66
-Republica Disney,77
-Targaryen,17
-Forca X,18
+PDT,12
+PT,13
+MDB,15
+PSL,17
+REDE,18
+PODEMOS,19
+DEM,25
+NOVO,30
+PSDB,45
+PCdoB,65
+PSOL,50

@@ -27,7 +27,7 @@ def confirma_escolha(cargos):
     num_prefeito = candidatos[0][3]
     num_vereador = candidatos[1][3]
     # print(cargos)
-    dados = ['Prefeito: ' + prefeito, 'Vereador: ' + vereador]
+    dados = ['Primeiro Turno: ' + prefeito, 'Segundo Turno: ' + vereador]
     confirmacao.gera_qrcode(dados, [num_prefeito, num_vereador])
 
 

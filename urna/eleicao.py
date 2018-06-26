@@ -47,6 +47,7 @@ def carrega_candidatos():
             numero = int(dados_candidatos[0])
             foto = carrega_fotos(numero)
             # formata o padrão de dados candidatos
+
             candidato = [foto, dados_candidatos[1],
                          dados_candidatos[3].replace("\n", ""), numero, dados_candidatos[2]]
             candidatos[numero] = candidato

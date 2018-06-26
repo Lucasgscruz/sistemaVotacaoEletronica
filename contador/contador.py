@@ -19,9 +19,9 @@ def salvarVotos():
     max_votos = 0
     eleito = ''
     arq = open("votos.txt", "w")
-    arq.write("Prefeito\n")
+    arq.write("Primeiro Turno\n")
     for i in candidatos:
-        if candidatos[i][4] == 'Prefeito':
+        if candidatos[i][4] == 'Presidente':
             arq.write(candidatos[i][1] + ': ')
             arq.write(str(candidatos[i][5]) + '\n')
             if candidatos[i][5] > max_votos:
@@ -29,12 +29,12 @@ def salvarVotos():
                 max_votos = candidatos[i][5]
             total_prefeito += candidatos[i][5]
     arq.write('Total de votos --> '+ str(total_prefeito) + '\n')
-    arq.write('Prefeito eleito: ' + eleito + ' ' +str(max_votos) + ' votos\n')
+    arq.write('Mais Votado primeiro turno: ' + eleito + ' ' +str(max_votos) + ' votos\n')
 
     max_votos = 0
-    arq.write("\nVereador\n")
+    arq.write("\nSegundo Turno\n")
     for i in candidatos:
-        if candidatos[i][4] == 'Vereador':
+        if candidatos[i][4] == 'Segundo Turno':
             arq.write(candidatos[i][1] + ': ')
             arq.write(str(candidatos[i][5]) + '\n')
             if candidatos[i][5] > max_votos and candidatos[i][1] != 'Nulo':
@@ -42,7 +42,7 @@ def salvarVotos():
                 max_votos = candidatos[i][5]
             total_vereador += candidatos[i][5]
     arq.write('Total de votos --> '+ str(total_prefeito) + '\n')
-    arq.write('Vereador eleito: ' + eleito + ' ' +str(max_votos) + ' votos')
+    arq.write('Mais Votado segundo turno: ' + eleito + ' ' +str(max_votos) + ' votos')
     arq.close()
     crip.cifraVotos("votosCifrados.txt")
     crip.gerar_hash("votosCifrados.txt")
