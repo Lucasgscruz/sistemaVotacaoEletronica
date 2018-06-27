@@ -4,6 +4,7 @@
 # https://pypi.org/project/qrcode/
 
 import qrcode
+import time
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
@@ -53,7 +54,7 @@ def gera_vvpat(img, dados):
     img.save(caminhho_urna + name)
     # exibe o vvpat salvo..
     visualizar = Image.open(caminhho_urna + name)
-    visualizar.show()
-    # armazena os dados de vvpats gerados
+    #visualizar.show()
+
     pos += 1
     contador_vvpat(pos)
