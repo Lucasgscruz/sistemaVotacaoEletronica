@@ -8,6 +8,7 @@ Sistema de votação desenvolvido para a disciplina de segurança de urnas eletr
 - Matheus Reis
 
 UFSJ 2018
+Site: http://harpocrates.magnustec.com
 
 # Requisitos
 
