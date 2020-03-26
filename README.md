@@ -64,8 +64,8 @@ Modulo de Confirmação/leitor
 > python leitor.py
 
 ## Desenvolvido por:
-![](https://github.com/ValneyFaria.png?size=100)
-Valney Faria ([github](https://github.com/cmagnobarbosa))
+![](https://github.com/cmagnobarbosa.png?size=100)
+Carlos Magno ([github](https://github.com/cmagnobarbosa))
 
 ![](https://github.com/Lucasgscruz.png?size=100)
 Lucas Cruz ([github](https://github.com/lucasgscruz))
